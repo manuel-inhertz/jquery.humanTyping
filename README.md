@@ -41,7 +41,7 @@ Please [open an issue](https://github.com/fraction/jquery-humantyping/issues/new
 
 ## Contributing
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/fraction/jquery-humantyping/compare/).
+Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/manuel-inhertz/jquery.humanTyping/pull/new/master).
 
 ## License
 
