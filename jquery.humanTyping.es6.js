@@ -1,3 +1,13 @@
+/* ========================================================================================
+JQuery humanTyping plugin - ES6 version.
+Allows you to simulate a human typing a phrase as a placeholder for a form input field.
+
+Developer: Manuel InHertz
+Docs & Repo: 
+wwww.manuel-inhertz.com
+
+=========================================================================================== */
+
 (function ( $ ) {
 
     $.fn.humanTyping = function( array ) {
