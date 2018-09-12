@@ -3,7 +3,7 @@ JQuery humanTyping plugin.
 Allows you to simulate a human typing a phrase as a placeholder for a form input field.
 
 Developer: Manuel InHertz
-Docs & Repo: 
+Docs & Repo: https://github.com/manuel-inhertz/jquery.humanTyping
 wwww.manuel-inhertz.com
 
 =========================================================================================== */
