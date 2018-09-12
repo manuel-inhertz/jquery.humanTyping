@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet"> 
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="https://github.com/manuel-inhertz/jquery.humanTyping/">JQuery.humanTyping by @manuel-inhertz </a><iframe src="http://ghbtns.com/github-btn.html?user=manuel-inhertz&amp;repo=jquery.humanTyping&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></h1>
+        </header>
+        <main>
+            <div class="row">
+                <div class="col-md-6 w-full"><textarea id="live" disabled></textarea></div>
+                <div class="col-md-6"><textarea id="code" disabled>var phrases = ['I\'m a human typing placeholder', 'Try me out', 'Made with love by Manuel InHertz']; 
+ 
+$(element).humanTyping(phrases);</textarea></div>
+            </div>
+            <div class="button-bar">
+<a href="https://github.com/manuel-inhertz/jquery.humanTyping/archive/master.zip" class="button big primary"><i class="fa fa-download"></i>
+    Download ZIP</a>
+                <a href="#show" class="button big primary" onclick="$('.docs').slideDown();"><i class="fa fa-file-text"></i> Documentation</a>
+            </div>
+            <div id="show" class="docs"></div> 
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="jquery.humanTyping.min.js"></script>
+    <script>var element='#live',codeToRun=$('#code').val();$(document).ready(function(){$('body').append('<script>'+codeToRun),$.get('README.md',function(a){$('.docs').html(marked(a))}),setTimeout(()=>{$('.col-md-6').removeClass('w-full'),$('#code').fadeIn('slow')},9e3)});</script>
+</body>
+</html>
