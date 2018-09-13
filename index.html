@@ -27,12 +27,12 @@ $(element).humanTyping(phrases);</textarea></div>
             <div class="button-bar">
 <a href="https://github.com/manuel-inhertz/jquery.humanTyping/archive/master.zip" class="button big primary"><i class="fa fa-download"></i>
     Download ZIP</a>
-                <a href="#show" class="button big primary" onclick="$('.docs').slideDown();"><i class="fa fa-file-text"></i> Documentation</a>
+                <a href="#show" class="button big primary"><i class="fa fa-file-text"></i> Documentation</a>
             </div>
             <div id="show" class="docs"></div> 
         </main>
     </div>
-    <footer style="text-align: center;">
+    <footer style="text-align: center; font-size: 40px; color: white;">
             <span>Made with</span>
             <div id="heart"></div>
             <span>By Manuel InHertz</span>
@@ -42,6 +42,6 @@ $(element).humanTyping(phrases);</textarea></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="jquery.humanTyping.min.js"></script>
-    <script>var element='#live',codeToRun=$('#code').val();$(document).ready(function(){$('body').append('<script>'+codeToRun),$.get('README.md',function(a){$('.docs').html(marked(a))}),setTimeout(()=>{$('.col-md-6').removeClass('w-full'),$('#code').fadeIn('slow')},9e3)});</script>
+    <script>var element='#live',codeToRun=$('#code').val();$(document).ready(function(){$('a[href="#show"]').click(function(e){$('.docs').slideDown()}),$('body').append('<script>'+codeToRun),$.get('README.md',function(a){$('.docs').html(marked(a))}),setTimeout(()=>{$('.col-md-6').removeClass('w-full'),$('#code').fadeIn('slow')},9e3)});</script>
 </body>
 </html>
