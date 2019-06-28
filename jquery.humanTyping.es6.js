@@ -1,58 +1,70 @@
-/* ========================================================================================
-JQuery humanTyping plugin - ES6 version.
-Allows you to simulate a human typing a phrase as a placeholder for a form input field.
+/* ======================================================================================================
+jquery.humanTyping for JQuery - ES6 version.
+Allows you to simulate a human typing a phrase as a placeholder for a form input field or as simple text.
 
-Developer: Manuel InHertz
+Author: Manuel InHertz
 Docs & Repo: https://github.com/manuel-inhertz/jquery.humanTyping
 wwww.manuel-inhertz.com
 
-=========================================================================================== */
+======================================================================================================== */
 
-(function ( $ ) {
+(function($) {
 
-    $.fn.humanTyping = function( array ) {
-      const el = this;
-      
-      function toAdd(l) {
-        const current = el.attr('placeholder');
-        el.attr('placeholder', current + l );
-        return new Promise(resolve => setTimeout(resolve, 100));
-      }
-      
-      // Print one phrase
-      function printPhrase(phrase) {
-          return new Promise(resolve => {
-              // Clear placeholder before typing next phrase
-              el.attr('placeholder', ''); //resets placeholder to 0
-            
-              let letters = phrase.split('');
-              // For each letter in phrase
-              letters.reduce(
-                  (promise, letter, index) => promise.then(_ => {
-                      // Resolve promise when all letters are typed
-                      if (index === letters.length - 1) {
-                          // Delay before start next phrase "typing"
-                          setTimeout(resolve, 1000);
-                      }
-                      return toAdd(letter);
-                  }),
-                  Promise.resolve()
-              );
-          });
-      } 
-      
-      function printPhrases(arr) {
-        // For each phrase
-        // wait for phrase to be typed
-        // before start typing next
-        arr.reduce(
-          (promise, phrase) => promise.then( _ => printPhrase(phrase)), 
-          Promise.resolve()
-        );
-      }
-      
-      return printPhrases(array);
-      
-    };
+    $.fn.humanTyping = function(array, speed = 100) {
+        const el = this;
+        if (el.data('placeholder')) {
+            const printPhrases = array.reduce(function(promise, phrase) {
+                return promise.then(function(_) {
+                    //for each phrase
+                    return new Promise(function(resolve) {
+                        // Clear value before typing next phrase
+                        el.attr('placeholder', '');
+                        var letters = phrase.split("");
+                        // For each letter in phrase
+                        letters.reduce(function(promise, letter, index) {
+                            return promise.then(function(_) {
+                                // Resolve promise when all letters are typed
+                                if (index === letters.length - 1) {
+                                    // Delay before start next phrase "typing"
+                                    setTimeout(resolve, 1000);
+                                }
+                                const currentVal = el.attr('placeholder');
+                                el.attr('placeholder', currentVal + letter);
+                                return new Promise(function(resolve) {
+                                    setTimeout(resolve, speed);
+                                });
+                            });
+                        }, Promise.resolve());
+                    });
+                });
+            }, Promise.resolve());
+        } else {
+            const printPhrases = array.reduce(function(promise, phrase) {
+                return promise.then(function(_) {
+                    //for each phrase
+                    return new Promise(function(resolve) {
+                        // Clear value before typing next phrase
+                        el.text('');
+                        var letters = phrase.split("");
+                        // For each letter in phrase
+                        letters.reduce(function(promise, letter, index) {
+                            return promise.then(function(_) {
+                                // Resolve promise when all letters are typed
+                                if (index === letters.length - 1) {
+                                    // Delay before start next phrase "typing"
+                                    setTimeout(resolve, 1000);
+                                }
+                                const currentVal = el.text();
+                                el.text(currentVal + letter);
+                                return new Promise(function(resolve) {
+                                    setTimeout(resolve, speed);
+                                });
+                            });
+                        }, Promise.resolve());
+                    });
+                });
+            }, Promise.resolve());
+        }
+    }
 
-  }( jQuery ));
+}(jQuery));

@@ -1,6 +1,6 @@
-# JQUERY HumanTyping Lib
+# jquery.humanTyping for JQuery
 
-A Jquery plugin that allows you to simulate a human typing a phrase as a placeholder for a form input field.
+A Jquery plugin that allows you to simulate a human typing a phrase as a placeholder for a form input field or as simple text.
 
 ES6 file also availble.
 
@@ -23,7 +23,17 @@ Include it in your project after the Jquery <link> tag.
 
 ## Usage
 
+Takes 2 arguments:
+
+- Array of strings
+- Write speed in milliseconds (default: 100)
+
+Pass "data-placeholder" or "data-text" to the element tag (default: text)
+
 ```sh
+
+	<input type="text" data-placeholder>
+
     var typingPh = [
         "Search Website e.g. \"Dancing Cats\"",
         "Lorem ipsum dolor sit amet",
@@ -31,7 +41,8 @@ Include it in your project after the Jquery <link> tag.
         "JS is so strange :)"
     ]; 
 
-    $('input').humanTyping(typingPh);
+    $('input').humanTyping(typingPh, 150);
+    
 ```
 ![Preview](screen.gif)
 
